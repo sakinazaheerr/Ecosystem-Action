@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About EcoTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+
+    <a href="{{ url_for('about') }}" class="sidebar-item sidebar-logo active">
+        <img src="{{ url_for('static', filename='images/ecotrack.png') }}" class="icon">
+        <span class="tooltip">About EcoTrack</span>
+    </a>
+
+    <a href="{{ url_for('home') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/home.png') }}" class="icon">
+        <span class="tooltip">Home</span>
+    </a>
+
+    <a href="{{ url_for('create_post') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/post.png') }}" class="icon">
+        <span class="tooltip">Create Post</span>
+    </a>
+
+    <a href="{{ url_for('search') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/search.png') }}" class="icon">
+        <span class="tooltip">Search</span>
+    </a>
+
+    
+
+    <a href="rewards.html" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/rewards.png') }}" class="icon">
+        <span class="tooltip">Rewards</span>
+    </a>
+
+    <div class="sidebar-item has-dropdown">
+        <img src="{{ url_for('static', filename='images/login.png') }}" class="icon">
+        <span class="tooltip">Sign In / Register</span>
+        <div class="sidebar-dropdown">
+            <a href="{{ url_for('login') }}">Sign In</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </div>
+    </div>
+
+    <a href="{{ url_for('settings') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/settings.png') }}" class="icon">
+        <span class="tooltip">Settings</span>
+    </a>
+
+    <a href="{{ url_for('logout') }}" class="sidebar-item">
+            <h5>Logout</h5>
+            <span class="tooltip">Logout</span>
+    </a>
+
+
+</aside>
+
+
+<!-- Main Content honestly ill rewrite this in the future -->
+<main class="main-with-sidebar main-narrow card" style="padding: 1.5rem; margin-top: 2rem;">
+
+    <h1 style="color:#59ffb6; margin-bottom:1rem;">What is EcoTrack?</h1>
+
+    <p style="line-height:1.6; margin-bottom:1rem;">
+        EcoTrack is a community-driven platform designed to help individuals and organizations 
+        take meaningful environmental actions. Whether you are a student, an activist, a volunteer group, 
+        or a professional environmental organization, EcoTrack provides the tools to track, share, and 
+        manage sustainable actions and eco-friendly events.
+    </p>
+
+    <h2 style="color:#59ffb6; margin-top:1.5rem;">For Users</h2>
+    <ul style="margin-top:0.5rem; margin-left:1.2rem; line-height:1.7;">
+        <li>Create and share sustainable actions.</li>
+        <li>Join eco-events hosted by local groups or organizations.</li>
+        <li>Earn points for participating in events and completing actions.</li>
+        <li>Redeem points for rewards from the Rewards page.</li>
+        <li>Explore new ideas and trends through the Explore page.</li>
+    </ul>
+
+    <h2 style="color:#59ffb6; margin-top:1.5rem;">For Organizers</h2>
+    <ul style="margin-top:0.5rem; margin-left:1.2rem; line-height:1.7;">
+        <li>Create events for cleanups, drives, sustainability workshops, and more.</li>
+        <li>Promote your mission to the community through posts and updates.</li>
+        <li>Engage with participants through actions and event sign-ups.</li>
+        <li>Track participation engagement through posted content.</li>
+    </ul>
+
+    <p style="margin-top:2rem;">
+        EcoTrack brings the community together to create real environmental impact, 
+        one action at a time.
+    </p>
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

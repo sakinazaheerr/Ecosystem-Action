@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post – EcoTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <a href="{{ url_for('about') }}" class="sidebar-item sidebar-logo">
+            <img src="{{ url_for('static', filename='images/ecotrack.png') }}" class="icon">
+            <span class="tooltip">About EcoTrack</span>
+        </a>
+
+        <a href="{{ url_for('home') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/home.png') }}" class="icon">
+            <span class="tooltip">Home</span>
+        </a>
+
+        <a href="{{ url_for('create_post') }}" class="sidebar-item active">
+            <img src="{{ url_for('static', filename='images/post.png') }}" class="icon">
+            <span class="tooltip">Create Post</span>
+        </a>
+
+        <a href="{{ url_for('search') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/search.png') }}" class="icon">
+            <span class="tooltip">Search</span>
+        </a>
+
+        <a href="{{ url_for('rewards') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/rewards.png') }}" class="icon">
+            <span class="tooltip">Rewards</span>
+        </a>
+
+        <div class="sidebar-item has-dropdown">
+            <img src="{{ url_for('static', filename='images/login.png') }}" class="icon">
+            <span class="tooltip">Sign In / Register</span>
+            <div class="sidebar-dropdown">
+                <a href="{{ url_for('login') }}">Sign In</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            </div>
+        </div>
+
+        <a href="{{ url_for('settings') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/settings.png') }}" class="icon">
+            <span class="tooltip">Settings</span>
+        </a>
+
+        <a href="{{ url_for('logout') }}" class="sidebar-item">
+            <h5>Logout</h5>
+            <span class="tooltip">Logout</span>
+        </a>
+
+
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-with-sidebar main-narrow card" style="padding: 1.5rem; margin-top: 2rem;">
+
+        <!-- NEW TITLE TEXT ADDED HERE -->
+        <h1 style="color:#59ffb6; margin-bottom: 1rem; text-align:center; font-size:1.6rem;">
+            Create Post
+        </h1>
+        <!-- END NEW TITLE -->
+
+        <form action="{{ url_for('postjob') }}" method="POST" enctype="multipart/form-data">
+
+            <div class = "post-image-placeholder" id ="imagehold">
+                <input id = "filein" type="file" name="image" title="image" accept="image/*">
+            </div>
+            <label class="form-label">
+                Title
+                <input type="text" placeholder="Enter title" name = "Title">
+            </label>
+
+            <label class="form-label">
+                Description
+                <textarea placeholder="Enter description" name = "description"></textarea>
+            </label>
+
+            <label class="form-label">
+                Category
+                <select name = "category">
+                    <option value = "Action">Action</option>
+                    <option value = "Event">Event</option>
+                </select>
+            </label>
+
+            <button class="btn-primary">Submit</button>
+
+        </form>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+
+        const input = document.getElementById('filein');
+        const container = document.getElementById('imagehold');
+     
+        input.addEventListener('change', () => {
+            const file = input.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = e => {
+                container.style.backgroundImage = `url(${e.target.result})`;
+                container.style.border = "none";
+                text.style.display = "none";
+             
+            };
+            reader.readAsDataURL(file);
+        });
+    </script>
+
+</body>
+</html>

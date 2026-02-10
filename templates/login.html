@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In – EcoTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<aside class="sidebar">
+
+    <a href="{{ url_for('about') }}" class="sidebar-item sidebar-logo">
+        <img src="{{ url_for('static', filename='images/ecotrack.png') }}" class="icon">
+        <span class="tooltip">About EcoTrack</span>
+    </a>
+
+    <a href="{{ url_for('home') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/home.png') }}" class="icon">
+        <span class="tooltip">Home</span>
+    </a>
+
+    <a href="{{ url_for('create_post') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/post.png') }}" class="icon">
+        <span class="tooltip">Create Post</span>
+    </a>
+
+    <a href="{{ url_for('search') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/search.png') }}" class="icon">
+        <span class="tooltip">Search</span>
+    </a>
+
+
+    <a href="{{ url_for('rewards') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/rewards.png') }}" class="icon">
+        <span class="tooltip">Rewards</span>
+    </a>
+
+    <div class="sidebar-item has-dropdown active">
+        <img src="{{ url_for('static', filename='images/login.png') }}" class="icon">
+        <span class="tooltip">Sign In</span>
+    </div>
+
+    <a href="{{ url_for('settings') }}" class="sidebar-item">
+        <img src="{{ url_for('static', filename='images/settings.png') }}" class="icon">
+        <span class="tooltip">Settings</span>
+    </a>
+
+    <a href="{{ url_for('logout') }}" class="sidebar-item">
+            <h5>Logout</h5>
+            <span class="tooltip">Logout</span>
+    </a>
+
+
+</aside>
+
+
+<main class="auth-container">
+
+    <div class="auth-card card">
+
+        <h2 class="auth-title">Sign In</h2>
+
+        <form action="{{ url_for('loginuser') }}" method="POST">
+
+            <label class="form-label">
+                Username or Email
+                <input type="text" name="username" placeholder="Enter username">
+            </label>
+
+            <label class="form-label">
+                Password
+                <input type="password" name="password" placeholder="Enter password">
+            </label>
+
+            <button class="btn-primary">Sign In</button>
+
+        </form>
+        
+        <!-- Flash Messages for login errors -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes" style="list-style: none; padding: 0; color: #ff6b6b; text-align: center; margin-top: 1rem;">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <p style="margin-top:1rem; text-align:center;">
+            Not registered yet?
+            <a href="{{ url_for('register') }}" style="color:#59ffb6; text-decoration:underline;">
+                Create an account here
+            </a>
+        </p>
+
+    </div>
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

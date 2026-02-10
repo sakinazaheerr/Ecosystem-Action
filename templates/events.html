@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoTrack – Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <a href="{{ url_for('about') }}" class="sidebar-item sidebar-logo">
+
+            <img src="images/ecotrack.png" class="icon">
+            <span class="tooltip">EcoTrack</span>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/home.png') }}" class="icon">
+            <span class="tooltip">Home</span>
+        </a>
+
+        <a href="{{ url_for('create_post') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/post.png') }}" class="icon">
+            <span class="tooltip">Create Post</span>
+        </a>
+
+        <a href="{{ url_for('search') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/search.png') }}" class="icon">
+            <span class="tooltip">Search</span>
+        </a>
+
+
+        <a href="{{ url_for('rewards') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/rewards.png') }}" class="icon">
+            <span class="tooltip">Rewards</span>
+        </a>
+
+        <div class="sidebar-item has-dropdown">
+            <img src="{{ url_for('static', filename='images/login.png') }}" class="icon">
+            <span class="tooltip">Sign In / Register</span>
+            <div class="sidebar-dropdown">
+                <a href="{{ url_for('login') }}">Sign In</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            </div>
+        </div>
+
+        <a href="{{ url_for('settings') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/settings.png') }}" class="icon">
+            <span class="tooltip">Settings</span>
+        </a>
+
+
+        <a href="{{ url_for('logout') }}" class="sidebar-item">
+            <h5>Logout</h5>
+            <span class="tooltip">Logout</span>
+        </a>
+
+
+    </aside>
+
+    <!-- Fake Content -->
+    <main class="main-with-sidebar main-narrow feed-container">
+
+        <article class="feed-item card">
+            <header class="feed-header">
+                <div class="user-icon"></div>
+                <div>
+                    <div class="feed-username">GreenHub Org</div>
+                    <div class="feed-timestamp">Event: Tomorrow</div>
+                </div>
+            </header>
+            <div class="feed-image"></div>
+            <div class="feed-body">
+                <p>Event details here.</p>
+            </div>
+        </article>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings – EcoTrack</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <a href="{{ url_for('about') }}" class="sidebar-item sidebar-logo">
+
+            <img src="{{ url_for('static', filename='images/ecotrack.png') }}" class="icon">
+            <span class="tooltip">EcoTrack</span>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/home.png') }}" class="icon">
+            <span class="tooltip">Home</span>
+        </a>
+
+        <a href="{{ url_for('create_post') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/post.png') }}" class="icon">
+            <span class="tooltip">Create Post</span>
+        </a>
+
+        <a href="{{ url_for('search') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/search.png') }}" class="icon">
+            <span class="tooltip">Search</span>
+        </a>
+
+        <a href="{{ url_for('explore') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/explore.png') }}" class="icon">
+            <span class="tooltip">Explore</span>
+        </a>
+
+        <a href="{{ url_for('rewards') }}" class="sidebar-item">
+            <img src="{{ url_for('static', filename='images/rewards.png') }}" class="icon">
+            <span class="tooltip">Rewards</span>
+        </a>
+
+        <div class="sidebar-item has-dropdown">
+            <img src="{{ url_for('static', filename='images/login.png') }}" class="icon">
+            <span class="tooltip">Sign In / Register</span>
+            <div class="sidebar-dropdown">
+                <a href="{{ url_for('login') }}">Sign In</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            </div>
+        </div>
+
+        <a href="{{ url_for('settings') }}" class="sidebar-item active">
+            <img src="{{ url_for('static', filename='images/settings.png') }}" class="icon">
+            <span class="tooltip">Settings</span>
+        </a>
+
+        <a href="{{ url_for('logout') }}" class="sidebar-item">
+            <h5>Logout</h5>
+            <span class="tooltip">Logout</span>
+        </a>
+
+    </aside>
+
+    <!-- Fake Content -->
+    <main class="main-with-sidebar main-narrow settings-wrapper">
+
+        <section class="settings-section">
+            <h3>Account</h3>
+            <div class="settings-toggle">
+                <label>Email Notifications</label>
+                <input type="checkbox">
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h3>Theme</h3>
+            <div class="settings-toggle">
+                <label>Dark Mode (Always On)</label>
+            </div>
+        </section>
+
+        <section class="settings-section">
+            <h3>Privacy</h3>
+            <div class="settings-toggle">
+                <label>Make Profile Public</label>
+                <input type="checkbox">
+            </div>
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
